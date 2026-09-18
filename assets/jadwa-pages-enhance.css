@@ -1,0 +1,50 @@
+/* Jadwa GitHub Pages enhancements — light polish only */
+:focus-visible {
+  outline: 2px solid #1b5c4a;
+  outline-offset: 2px;
+}
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #1b5c4a;
+  outline-offset: 2px;
+}
+/* Prefer comfortable tap targets on primary CTAs */
+a.bg-primary, button.bg-primary, .bg-primary[role="button"],
+a[class*="bg-primary"], button[class*="bg-primary"] {
+  min-height: 44px;
+}
+h1, h2, h3 {
+  text-wrap: pretty;
+}
+/* Static-port notice */
+#jadwa-pages-banner {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #1b5c4a;
+  color: #f4f1ea;
+  font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  padding: 0.55rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: center;
+  box-shadow: 0 1px 0 rgba(0,0,0,.08);
+}
+#jadwa-pages-banner[hidden] { display: none !important; }
+#jadwa-pages-banner button {
+  flex-shrink: 0;
+  background: transparent;
+  border: 1px solid rgba(244,241,234,.45);
+  color: inherit;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  cursor: pointer;
+  font: inherit;
+  min-height: 32px;
+}
+#jadwa-pages-banner button:hover {
+  background: rgba(244,241,234,.12);
+}
