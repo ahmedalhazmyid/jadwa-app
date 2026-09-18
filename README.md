@@ -8,38 +8,25 @@ This repository is a **static GitHub Pages port** of the Jadwa TanStack/React SP
 
 **https://ahmedalhazmyid.github.io/jadwa-app/**
 
-## Guest / no-login mode
-
-This static build runs **fully client-side**:
-
-- **No sign-in / account / better-auth backend** — `/start`, `/dashboard`, and `/projects/$id` always see a local guest user.
-- Studies are created, listed, opened, and deleted via **`localStorage`** (`jadwa.guest.projects.v1`).
-- Financial engine (NPV, IRR, payback, sensitivity, valuation) runs in the browser from the shipped `schema-*.js` module.
-
 ## What’s included
 
-- Static HTML for public routes (`/`, `/start`, `/blog/*`, `/valuation`, …)
-- Full Vite asset graph
-- Client-side routing with TanStack Router (`basepath: /jadwa-app`)
-- SPA fallback via `404.html` + `.nojekyll`
+- Static HTML for all public routes (`/`, `/start`, `/blog/*`, `/valuation`, …)
+- Full Vite asset graph (including underscore chunks `_slug-*.js`, `_id-*.js`)
+- Client-side routing with TanStack `basepath: /jadwa`
+- SPA fallback via `404.html` + `.nojekyll` (so `_*.js` is published)
 
-## Limitations vs the Vercel original
+## Improvements vs a naive mirror
 
-- No better-auth / `/api/auth` — login CTAs point to `/start`.
-- No `/_serverFn/` cloud research, live citations, or server PDF pipeline.
-- Browser “Print” can still produce a PDF-like export of the on-screen report.
-- Data stays in the current browser profile (clearing site data removes studies).
+- Indexable (`robots.txt`, `sitemap.xml`, OG/canonical → GitHub Pages)
+- PWA manifest scoped to `/jadwa-app/`
+- Server-fn stub so `/_serverFn/` never networks
+- Light a11y/CSS polish + honest dismissible static-build notice
+- Grok builder `extensions.js` removed
 
-## Base path
+## Caveats
 
-GitHub project Pages URL: `https://ahmedalhazmyid.github.io/jadwa-app/`  
-Asset and router base path: `/jadwa-app`
+Login, cloud research, and any PDF/server-backed features from the Vercel original may be limited or unavailable in this fully client-side build. Core NPV/IRR/DCF calculation flows that run in the browser still work.
 
-## Verify
+## License / credit
 
-1. Open `https://ahmedalhazmyid.github.io/jadwa-app/start` — should load without redirecting to a login gate.
-2. Fill the form → Generate — opens `/projects/...` from localStorage.
-3. Open `https://ahmedalhazmyid.github.io/jadwa-app/dashboard` — lists the same studies.
-4. View source / Network: guest session (`guest-local` / `ضيف`) and no calls to jadwa.grok.me for core calculate/save/list.
-
-Mirrored fresh from `https://jadwa.grok.me` then patched for Pages guest mode.
+Product: Jadwa · جدوى. Port published for static hosting on GitHub Pages.
